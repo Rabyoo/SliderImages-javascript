@@ -1,0 +1,148 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111;
+    min-height: 100vh;
+}
+.container {
+    max-width: 1200px;
+    width: 95%;
+    margin-top:100px;
+}
+.container .title h1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+    border-bottom: 3px solid #007dd6;
+}
+.slider-wrapper {
+    position: relative;
+}
+.slider-wrapper .slide-button {
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    background-color: #000;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transform: translateY(-50%);
+    transition: 0.1s;
+}
+.slider-wrapper .slide-button:hover {
+    background-color: #444444f5;
+}
+.slider-wrapper .slide-button:active {
+    color: #007dd6;
+    border: 2px solid #007dd6;
+}
+.slider-wrapper .slide-button#prev-slide {
+    left: -25px;
+    display: none;
+}
+.slider-wrapper .slide-button#next-slide {
+    right: -25px;
+}
+
+.slider-wrapper .image-list {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(10, 1fr);
+    font-size: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-bottom: 30px;
+    /* overflow-y: hidden;
+    width: 80%;
+    position: absolute;
+    left: 10%; */
+}
+.slider-wrapper .image-list::-webkit-scrollbar {
+    display: none;
+}
+.slider-wrapper .image-list .image-item {
+    width: 325px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.container .slider-scrollBar {
+    width: 100%;
+    height: 24px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+}
+.slider-scrollBar .scrollBar-track {
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+    border-radius: 4px;
+}
+.slider-scrollBar:hover .scrollBar-track {
+    height: 4px;
+}
+.slider-scrollBar .scrollBar-thumb {
+    height: 100%;
+    width: 50%;
+    background-color: #116baa;
+    border-radius: inherit;
+    cursor: grab;
+}
+.slider-scrollBar .scrollBar-thumb:active {
+    cursor: grabbing;
+    height: 8px;
+    top: -2px;
+}
+.slider-scrollBar .scrollBar-thumb::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10px;
+    bottom: -10px;
+}
+
+@media screen and (max-width:1023px) {
+    .slider-wrapper .slide-button {
+        display: none !important;
+    }
+    .slider-wrapper .image-list {
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+    .slider-wrapper .image-list .image-item {
+        width: 280px;
+        height: 380px;
+    }
+    .slider-scrollBar .scrollBar-thumb {
+        width: 20%;
+    }
+}
+@media screen and (max-width:768px) {
+    .container .title h1 {
+        width: 100%;
+        text-align: center;
+    }
+    .slider-wrapper .slide-button {
+        display: none !important;
+    }
+}
